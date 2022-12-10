@@ -2,21 +2,18 @@ import glob
 import os
 
 
-
 from db import DB
+
 print(os.path.dirname(os.path.abspath(__file__)))
 mypath = os.path.dirname(os.path.abspath(__file__))
-files = glob.glob(glob.escape(mypath)+"/*.sql")
+files = glob.glob(glob.escape(mypath) + "/*.sql")
 queries = []
 # read .sql file contents
 for f in files:
     with open(f, "r") as file:
-        queries.append({
-            "file": f,
-            "sql": file.read()
-        })
+        queries.append({"file": f, "sql": file.read()})
 # sort in prefix order
-queries = sorted(queries, key=lambda x:x["file"].lower())
+queries = sorted(queries, key=lambda x: x["file"].lower())
 # check if anything can be blocked to save query runs
 tables = DB.selectAll("SHOW TABLES")
 existing_tables = []
@@ -33,10 +30,7 @@ for q in queries:
     print(f"Trying file: {file}")
     # block existing tables to save queries (we have a quota of 10k per hour)
     if "CREATE TABLE" in sql.upper():
-        t = sql.split("(")[0] \
-        .replace("CREATE TABLE","") \
-        .replace("\n","") \
-        .strip()
+        t = sql.split("(")[0].replace("CREATE TABLE", "").replace("\n", "").strip()
         if t in existing_tables:
             print(f"Table {t} already exists, blocking query")
             continue
