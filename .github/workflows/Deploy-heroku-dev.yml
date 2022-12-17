@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - dev
-      - F22-Shop Milestone-2
+      - F22-Shop-Milestone-2
       
 
 # Your workflows jobs.
