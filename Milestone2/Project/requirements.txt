@@ -40,3 +40,4 @@ Werkzeug==2.0.3
 WTForms==3.0.1
 mysql-connector-python==8.0.31
 mysql-connector==2.2.9
+dotenv==0.0.5
