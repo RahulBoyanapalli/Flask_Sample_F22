@@ -17,7 +17,7 @@ jobs:
       DB_URL: ${{secrets.DB_URL}}
       SECRET_KEY: ${{secrets.SECRET_KEY}}
       PORT: 8080
-      # change to the project directory you're deploying
+      # change to the project directoyry you're deploying
       WORKING_DIRECTORY: project
     defaults:
       run:
