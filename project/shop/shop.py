@@ -94,6 +94,9 @@ def items():
 
 
 @shop.route("/shop", methods=["GET", "POST"])
+
+@login_required
+
 def shop_list():
     rows = []
     try:
@@ -193,3 +196,4 @@ def cart():
         print("Error getting cart", e)
         flash("Error fetching cart", "danger")
     return render_template("cart.html", rows=rows)
+
