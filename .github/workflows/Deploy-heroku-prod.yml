@@ -1,12 +1,13 @@
 # Your workflow name.
 name: Deploy to heroku prod.
 
-# Run workflow on every push to master branch.
+# Run workflow on every push to master branch master.
 
 on:
   push:
     branches:
       - prod
+      - Milestone2
 
       - Milestone2
 
@@ -49,7 +50,9 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           
           # Name of the heroku application to which the build is to be sent.
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD2 }}
+
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD2}}
+
 
           # (Optional, default: "./")
           # Dockerfile directory.
