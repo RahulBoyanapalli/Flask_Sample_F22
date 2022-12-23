@@ -94,7 +94,9 @@ def items():
 
 
 @shop.route("/shop", methods=["GET", "POST"])
+
 @login_required
+
 def shop_list():
     rows = []
     try:
@@ -195,42 +197,3 @@ def cart():
         flash("Error fetching cart", "danger")
     return render_template("cart.html", rows=rows)
 
-
-@shop.route("/checkout", methods=["POST"])
-def checkout():
-
-    return render_template("Fraud_Static.html")
-
-
-@shop.route("/checkdata", methods=["POST"])
-def checkdata():
-    input_Firstname = request.form["First_Name"]
-    input_LastName = request.form["Last_Name"]
-    input_Address = request.form["Address"]
-    input_Address_add = request.form["Address_add"]
-    input_City = request.form["City"]
-    input_State = request.form["State"]
-    input_Country = request.form["Country"]
-    input_Zip = request.form["Zip"]
-    # input_Cardno = request.form["Cardno"]
-    # input_expirydate = request.form["expirydate"]
-
-    print(
-        input_Firstname,
-        input_LastName,
-        input_Address,
-        input_Address_add,
-        input_City,
-        input_State,
-        input_Country,
-        input_Zip,
-        # input_Cardno,
-        # input_expirydate
-    )
-    return render_template("Fraud_Static.html")
-
-
-@shop.route("/checkout1", methods=["POST"])
-def checkout1():
-
-    return render_template("wallet_fraud_schedule.html")

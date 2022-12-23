@@ -24,10 +24,12 @@
                         <div class="row">
                             <input type="hidden" name="item_id" value="{{row['item_id']}}" />
                             <div class="col">
+
                                 <input type="number" class="form-control" name="quantity" value="{{row['quantity']}}" />
                             </div>
                             <div class="col d-grid">
                                 <input type="submit" value="Update" class="btn btn-secondary btn-sm" />
+
                             </div>
                         </div>
                     </form>
@@ -52,12 +54,12 @@
             </tr>
         </tbody>
     </table>
-</div>
-<div align="Right">
+</div><div align="Right">
     <form class="column" action="{{ url_for('shop.checkout')}}" method="post">
         <button style="background-color:#003366;color:white;height:40px;width:250px" align="Right" type="submit"
             class="btn btn-primary btn-block btn-large">Place an Order</button>
     </form>
 </div>
+
 
 {% endblock %}

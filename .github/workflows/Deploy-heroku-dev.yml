@@ -6,8 +6,10 @@ name: Deploy to heroku dev.
 on:
   push:
     branches:
+
       - prod
       - Milestone3
+
 # Your workflows jobs.
 jobs:
   build:
@@ -17,7 +19,9 @@ jobs:
       SECRET_KEY: ${{secrets.SECRET_KEY}}
       PORT: 8080
       # change to the project directory you're deploying
+
       WORKING_DIRECTORY: project
+
     defaults:
       run:
           working-directory: ${{env.WORKING_DIRECTORY}}
@@ -46,7 +50,9 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           
           # Name of the heroku application to which the build is to be sent.
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_PROD2 }}
+
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_DEV2 }}
+
 
           # (Optional, default: "./")
           # Dockerfile directory.
